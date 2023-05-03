@@ -9,28 +9,38 @@ const selectButton = document.getElementById('button-input');
 selectButton.addEventListener('click',
     function () {
         const inputValue = selectInput.value;
+        let result;
 
         // fai un controllo ciclico con tra il valore e la array
         for (let i = 0; i < listEmail.length; i++) {
-
             if (inputValue === listEmail[i]) {
-                console.log("sei nella lista");
+                result = "sei nella lista";
+
             } else {
-                console.log("non sei nella lista");
+                result = "non sei nella lista";
+                console.log(result);
             }
         }
+
+        // stampa su html
+        const selectDivText = document.getElementById('text');
+        const printText = `<p>Tu ${result} !</p>`;
+        selectDivText.innerHTML = printText;
+
     })
 
 
 
 // ESERCIZIO DADI
+const selectButtonDadi = document.getElementById('button-dadi');
+const selectCheck = document.getElementById('check-uno');
 
 // genera due numeri random con un bottone
-const selectButtonDadi = document.getElementById('button-dadi');
 selectButtonDadi.addEventListener('click',
     function () {
         const numUser = Math.floor(Math.random() * 6) + 1;
         const numComputer = Math.floor(Math.random() * 6) + 1;
+        // confronta i due numeri e stampa il vincitore
 
         if (numUser > numComputer) {
             console.log("User ha vinto");
@@ -39,12 +49,22 @@ selectButtonDadi.addEventListener('click',
         } else {
             console.log("Pareggio");
         }
+    }
+);
 
+
+// ESERCIZIO DADI VERSIONE ARRAY
+const selectButtonDadiDue = document.getElementById('button-dadi2');
+const numbers = [];
+
+// genera due numeri random con un bottone
+selectButtonDadiDue.addEventListener('click',
+    function () {
+        const numUser = Math.floor(Math.random() * 6) + 1;
+        const numComputer = Math.floor(Math.random() * 6) + 1;
+        // metti il risultato in una array
+        const putIntoArray = numbers.push(numUser, numComputer);
+        console.log(numbers);
 
     }
-
-)
-
-// metti i due numeri in due variabili
-
-// confronta le due variabie e stampa
+);
