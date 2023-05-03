@@ -9,46 +9,50 @@ const selectButton = document.getElementById('button-input');
 selectButton.addEventListener('click',
     function () {
         const inputValue = selectInput.value;
-        let result;
+        let result = " ";
 
         // fai un controllo ciclico con tra il valore e la array
         for (let i = 0; i < listEmail.length; i++) {
             if (inputValue === listEmail[i]) {
                 result = "sei nella lista";
-
-            } else {
-                result = "non sei nella lista";
-                console.log(result);
             }
         }
 
         // stampa su html
         const selectDivText = document.getElementById('text');
-        const printText = `<p>Tu ${result} !</p>`;
-        selectDivText.innerHTML = printText;
+        selectDivText.innerHTML = result;
 
     })
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 // ESERCIZIO DADI
 const selectButtonDadi = document.getElementById('button-dadi');
 const selectCheck = document.getElementById('check-uno');
+const selectParagrph = document.getElementById('winner');
 
 // genera due numeri random con un bottone
 selectButtonDadi.addEventListener('click',
     function () {
         const numUser = Math.floor(Math.random() * 6) + 1;
         const numComputer = Math.floor(Math.random() * 6) + 1;
-        // confronta i due numeri e stampa il vincitore
+        let result;
 
+        // confronta i due numeri e stampa il vincitore
         if (numUser > numComputer) {
-            console.log("User ha vinto");
+            result = "User ha vinto";
         } else if (numUser < numComputer) {
-            console.log("Computer ha vinto");
+            result = "Computer ha vinto";
         } else {
-            console.log("Pareggio");
+            result = "Pareggio";
         }
+
+        // Stampa su html
+        selectParagrph.innerHTML = `Il tuo numero: ${numUser}, Il numero Computer: ${numComputer}. ${result}`;
     }
 );
 
@@ -64,7 +68,7 @@ selectButtonDadiDue.addEventListener('click',
         const numComputer = Math.floor(Math.random() * 6) + 1;
         // metti il risultato in una array
         const putIntoArray = numbers.push(numUser, numComputer);
-        console.log(numbers);
+        console.log(putIntoArray);
 
     }
 );
